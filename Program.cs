@@ -1,7 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using PooDemo;
 using PooDemo.Models;
 using System.Text;
+
+var imprimirInfo = new ImprimirInfo();
 
 var superman = new SuperHeroe();
 
@@ -18,6 +21,8 @@ superman.Nombre = "Superman";
 superman.IdentidadSecreta = "Clark Kent";
 superman.Ciudad = "Metropolis";
 superman.PuedeVolar = true;
+
+imprimirInfo.ImprimirSuperHeroe(superman);
 
 var superman2 = new SuperHeroe();
 superman2.Id = 1;
@@ -36,6 +41,29 @@ poderesSuperman.Add(superFuerza);
 superman.SuperPoderes = poderesSuperman;
 string resultSuperPoderes = superman.UsarSuperPoderes();
 Console.WriteLine(resultSuperPoderes);
+string resultSalvarElMundo = superman.SalvarElMundo();
+Console.WriteLine(resultSalvarElMundo);
+
+var wolverine = new AntiHeroe();
+wolverine.Id = 5;
+wolverine.Nombre = "Wolverine";
+wolverine.IdentidadSecreta = "Logan";
+wolverine.PuedeVolar = false;
+
+imprimirInfo.ImprimirSuperHeroe(wolverine);
+
+var regeneracion = new SuperPoder();
+regeneracion.Nombre = "Regeneración";
+regeneracion.Nivel = NivelPoder.NivelDos;
+
+List<SuperPoder> poderesWolverine = new List<SuperPoder>();
+poderesWolverine.Add(regeneracion);
+poderesWolverine.Add(superFuerza);
+wolverine.SuperPoderes = poderesWolverine;
+string resultWolverinePoderes = wolverine.UsarSuperPoderes();
+Console.WriteLine(resultWolverinePoderes);
+string accionAntiheroe = wolverine.RealzarAccionDeAntiheroe("Ataca la policia");
+Console.WriteLine(accionAntiheroe);
 
 enum NivelPoder
 {
